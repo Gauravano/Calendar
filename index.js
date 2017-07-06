@@ -11,6 +11,7 @@ function currentConfig(){
 }
 
 function currentConfig(){
+	 clear();
 	 currentNum = 6;
  	 currentMonth = 6;
 	 currentYear = 2017;	
@@ -18,21 +19,25 @@ function currentConfig(){
 }
 
 function nextMonthConfig(){
+	clear();
 	currentMonth += 1;
 	dateSetter(currentMonth,currentYear);
 }
 
 function prevMonthConfig(){
+	clear();
 	currentMonth -=1;
 	dateSetter(currentMonth,currentYear);
 }
 
 function nextYearConfig(){
+	clear();
 	currentYear += 1;
 	dateSetter(currentMonth,currentYear);
 }
 
 function prevYearConfig(){
+	clear();
 	currentYear -=1;
 	dateSetter(currentMonth,currentYear);
 }
@@ -125,6 +130,11 @@ function numOfdays(){
 	return monthStr;	
 }
 
+function clear(){
+	for(var i=0;i<=34;i++){
+		document.getElementById(i).innerHTML = '';
+	}
+}
 
 function dateSetter(monthNum,year){
 
@@ -141,11 +151,13 @@ function dateSetter(monthNum,year){
 	// var setNum = setdate.getDate();
 	// var setDay = setdate.getDay();
 
-	for(var i=setDay,j=1;i<=34 && i<numDays;i++,j++){
+	for(var i=setDay,j=1;i<=34 && j<=numDays;i++,j++){
 		document.getElementById(i).innerHTML = j;
 	}
 
-	for(;i<numDays;i++,j++){
+	//var g = numDays - j;
+
+	for(i=0;j<=numDays;i++,j++){
 		document.getElementById(i).innerHTML = j;
 	}
 
