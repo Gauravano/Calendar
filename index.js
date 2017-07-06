@@ -98,6 +98,12 @@ function dateSetter(month,year,numDays){
 	var setdate = new Date(fullDate);
 	var setDay = setdate.getDay();
 
-	for(var i=setDay;i<=35)
+	for(var i=setDay,j=1;i<=34 && i<numDays;i++,j++){
+		document.getElementById(i).innerHTML = j;
+	}
+
+	for(;i<numDays;i++,j++){
+		document.getElementById(i).innerHTML = j;
+	}
 
 }
