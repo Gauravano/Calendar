@@ -18,8 +18,8 @@ function nextMonthConfig(){
 		currentYear+=1;
 	}else{
 		currentMonth += 1;
-		dateSetter(currentMonth,currentYear);
 	}
+	dateSetter(currentMonth,currentYear);
 }
 
 function prevMonthConfig(){
@@ -29,8 +29,8 @@ function prevMonthConfig(){
 		currentYear -=1;
 	}else{}
 		currentMonth -=1;
-		dateSetter(currentMonth,currentYear);
 	}
+	dateSetter(currentMonth,currentYear);
 }
 
 function nextYearConfig(){
@@ -62,19 +62,19 @@ function monthConvert(currentMonth){
 		case 4:monthStr = "May";
 							break;
 		case 5:monthStr = "June";
-					break;
+							break;
 		case 6:monthStr = "July";
-		break;
+							break;
 		case 7:monthStr = "August";
-		break;
+							break;
 		case 8:monthStr = "September";
-		break;
+							break;
 		case 9:monthStr = "October";
-		break;
+							break;
 		case 10:monthStr = "November";
-		break;
+							break;
 		case 11:monthStr = "December";
-		break;
+							break;
 
 	}
 	return monthStr;
@@ -106,7 +106,7 @@ function numOfdays(){
 	switch(currentMonth){
 		case 0:monthStr = 31;
 							break;
-		case 1:monthStr = 29;
+		case 1:monthStr = 28;
 							break;
 		case 2:monthStr = 31;
 							break;
@@ -133,6 +133,17 @@ function numOfdays(){
 	return monthStr;	
 }
 
+function leapYearCheck(month){
+	if(month%400 == 0){
+		return 29;
+	}else if(month%4==0 && month%100!=0){
+		return 29;
+	}else{
+		return 28;
+	}
+}
+
+
 function clear(){
 	for(var i=0;i<=34;i++){
 		document.getElementById(i).innerHTML = '';
@@ -143,6 +154,10 @@ function dateSetter(monthNum,year){
 
 	var month = monthConvert(monthNum);
 	var numDays = numOfdays(monthNum);
+
+	if(month == 1){
+		numDays = leapYearCheck(month);
+	}
 
 	var fullDate = month + ' ' +'01, '+year+' 00:00:00';
 	console.log(fullDate);
