@@ -27,7 +27,7 @@ function prevMonthConfig(){
 	if(currentMonth == 0){
 		currentMonth == 11;
 		currentYear -=1;
-	}else{}
+	}else{
 		currentMonth -=1;
 	}
 	dateSetter(currentMonth,currentYear);
@@ -105,38 +105,37 @@ function numOfdays(){
 	var monthStr;
 	switch(currentMonth){
 		case 0:monthStr = 31;
-							break;
+				break;
 		case 1:monthStr = 28;
-							break;
+				break;
 		case 2:monthStr = 31;
-							break;
+				break;
 		case 3:monthStr = 30;
-							break;
-		case 4:monthStr = 31;
-							break;
+				break;
+		case 4:monthStr = 31;							break;
 		case 5:monthStr = 30;
-					break;
+				break;
 		case 6:monthStr = 31;
-		break;
+				break;
 		case 7:monthStr = 31;
-		break;
+				break;
 		case 8:monthStr = 30;
-		break;
+				break;
 		case 9:monthStr = 31;
-		break;
+				break;
 		case 10:monthStr = 30;
-		break;
+				break;
 		case 11:monthStr = 31;
-		break;
+				break;
 
 	}
 	return monthStr;	
 }
 
-function leapYearCheck(month){
-	if(month%400 == 0){
+function leapYearCheck(year){
+	if(year%400 == 0){
 		return 29;
-	}else if(month%4==0 && month%100!=0){
+	}else if(year%4==0 && year%100!=0){
 		return 29;
 	}else{
 		return 28;
@@ -155,16 +154,18 @@ function dateSetter(monthNum,year){
 	var month = monthConvert(monthNum);
 	var numDays = numOfdays(monthNum);
 
-	if(month == 1){
-		numDays = leapYearCheck(month);
+	if(monthNum == 1){
+		numDays = leapYearCheck(year);
 	}
 
 	var fullDate = month + ' ' +'01, '+year+' 00:00:00';
 	console.log(fullDate);
-
+	
 	var setdate = new Date(fullDate);
 	var setDay = setdate.getDay();
 
+
+	document.getElementById("caption").innerHTML = month+" , "+year;
 	// var setdate = new Date('July 01, 2017 00:00:00');
 	// var setNum = setdate.getDate();
 	// var setDay = setdate.getDay();
