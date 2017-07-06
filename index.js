@@ -1,14 +1,7 @@
-var currentNum = 6;
-var currentMonth = 6;
-var currentYear = 2017;
 
-
-function currentConfig(){
-	 currentNum = 6;
- 	 currentMonth = 6;
-	 currentYear = 2017;	
-	 dateSetter()
-}
+var currentNum ;
+var currentMonth;
+var currentYear ;
 
 function currentConfig(){
 	 clear();
@@ -20,14 +13,24 @@ function currentConfig(){
 
 function nextMonthConfig(){
 	clear();
-	currentMonth += 1;
-	dateSetter(currentMonth,currentYear);
+	if(currentMonth == 11){
+		currentMonth = 0;
+		currentYear+=1;
+	}else{
+		currentMonth += 1;
+		dateSetter(currentMonth,currentYear);
+	}
 }
 
 function prevMonthConfig(){
 	clear();
-	currentMonth -=1;
-	dateSetter(currentMonth,currentYear);
+	if(currentMonth == 0){
+		currentMonth == 11;
+		currentYear -=1;
+	}else{}
+		currentMonth -=1;
+		dateSetter(currentMonth,currentYear);
+	}
 }
 
 function nextYearConfig(){
@@ -169,6 +172,7 @@ var PrevMonth =  document.getElementById("PrevMonth");
 var nextYear =  document.getElementById("nextYear");
 var PrevYear =  document.getElementById("PrevYear");
 
+currentConfig();
 current.addEventListener('click',currentConfig);
 nextMonth.addEventListener('click',nextMonthConfig);
 PrevMonth.addEventListener('click',prevMonthConfig);
