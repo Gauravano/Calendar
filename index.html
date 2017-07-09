@@ -3,21 +3,22 @@
 <head>
 	<title>Calendar</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
+<main>
 <header id="top">
 	<ul>
-		<li><button id="current">Current</button></li>
-		<li><button id="nextMonth">Next Month</button></li>
-		<li><button id="PrevMonth">Prev Month</button></li>
-		<li><button id="nextYear">Next Year</button></li>
-		<li><button id="PrevYear">Prev Year</button></li>
+		<li><button id="PrevYear"><i class="fa fa-angle-double-left" style="font-size:48px;color:red"></i></button></li>
+		<li><button id="PrevMonth"><i class="fa fa-angle-double-left" style="font-size:36px;"></i></button></li>
+		<li><button id="current">Go to Current Date</button><br><br>
+		<div id="currentT"></div></li>
+		<li><button id="nextMonth"><i class="fa fa-angle-double-right" style="font-size:36px;"></i></button></li>
+		<li><button id="nextYear"><i class="fa fa-angle-double-right" style="font-size:48px;color:red"></i></button></li>
 	</ul>
 </header>
 	<section id="block">
 		<table border="1px" align="center">
-			<caption id="caption" ></caption>
 			<thead>
 				<tr>
 					<th>Sunday</th>
@@ -77,6 +78,7 @@
 			
 		</table>
 	</section>
+<main>
 </body>
 <script type="text/javascript" src="index.js"></script>
 </html>

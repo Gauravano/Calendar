@@ -165,7 +165,7 @@ function dateSetter(monthNum,year){
 	var setDay = setdate.getDay();
 
 
-	document.getElementById("caption").innerHTML = month+" , "+year;
+	document.getElementById("currentT").innerHTML = month+" , "+year;
 	// var setdate = new Date('July 01, 2017 00:00:00');
 	// var setNum = setdate.getDate();
 	// var setDay = setdate.getDay();
